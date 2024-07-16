@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import WorldMap from './components/WorldMap';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      
+    <div>
+      <h1>Travel Guide</h1>
+      <WorldMap />
     </div>
   );
-}
+};
 
 export default App;

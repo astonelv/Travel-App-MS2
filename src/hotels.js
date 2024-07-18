@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
 const Hotels = () => {
-    const {hotels, setHotels} = useState({};
+    const {hotels, setHotels} = useState([])
         useEffect(() => {
         const handleFetch = async () => {
             const url = 'https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotels?pageNumber=1&currencyCode=USD';

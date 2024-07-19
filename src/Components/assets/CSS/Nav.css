@@ -1,0 +1,19 @@
+nav {
+    background-color: #414D59;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    margin-right: 1.5em;
+}
+
+.navbar-brand {
+    font: 700 1em sans-serif;
+    color: white;
+    margin-left: 1em;
+}

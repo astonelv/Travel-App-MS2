@@ -4,10 +4,8 @@ import logo from './logo.svg';
 import './App.css';
 import Flights from './Flights';
 import navbar from './navbar';
-
-
-
-
+import TopNav from './Components/TopNav';
+import Home from './Root';
 function App() {
   return (
     <div className="App">

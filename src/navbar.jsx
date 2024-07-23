@@ -3,7 +3,7 @@ import { FaGlobe } from 'react-icons/fa';
 import './navbar.css';
 
 
-const Navbar = () => {
+const navbar = () => {
     return (
         <section className="navBarSection">
             <div className="header">
@@ -17,4 +17,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar;
+export default navbar;

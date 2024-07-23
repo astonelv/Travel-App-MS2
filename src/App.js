@@ -1,13 +1,20 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Route,Routes } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
+import Flights from './Flights';
+import navbar from './navbar';
 import TopNav from './Components/TopNav';
 import Home from './Root';
 function App() {
   return (
     <div className="App">
-            <TopNav></TopNav>
-            <Home></Home>
+<TopNav/>
+       <Home/>
    <Outlet/>
+   <Route/>
+   <Routes/>
+     <Flights/>
     </div>
   );
 }

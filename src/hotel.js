@@ -38,6 +38,7 @@ const hotel = () => {
     return (
         <div>
             <h1>Hotels</h1>
+            
             <ul>
                 {
                     flights.map((hotel, index) => (

@@ -11,7 +11,8 @@ import navbar from './navbar';
 function App() {
   return (
     <div className="App">
-
+<TopNav/>
+       <Home/>
    <Outlet/>
    <Route/>
    <Routes/>

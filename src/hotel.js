@@ -41,7 +41,7 @@ const hotel = () => {
             
             <ul>
                 {
-                    flights.map((hotel, index) => (
+                    hotel.map((hotel, index) => (
                         <li key={`hotel-${index}`} >
                             {hotel.name}
                         </li>

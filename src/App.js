@@ -3,16 +3,16 @@ import { Outlet, Route,Routes } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import Flights from './Flights';
-import navbar from './navbar';
-
+import Navbar from './navbar';
+import Home from './Home';
 
 
 
 function App() {
   return (
     <div className="App">
-<TopNav/>
-       <Home/>
+  <Navbar/>
+  <Home/>
    <Outlet/>
    <Route/>
    <Routes/>

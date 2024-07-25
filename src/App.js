@@ -1,12 +1,11 @@
 import React from 'react';
 import { Outlet, Route,Routes } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Flights from './Flights';
 import Navbar from './navbar';
 import Home from './Home';
-import Hotel from './hotel';
 import WorldMap from './WorldMap';
+import Hotel from './hotel';
 
 const App = () => {
   return (
@@ -15,8 +14,8 @@ const App = () => {
         <Navbar/>
         <Home/>
         <Outlet/>
+        {/* <Hotel/> */}
      <Flights/>
-     {/* <Hotel/> */}
     <WorldMap />
     </div>
   );

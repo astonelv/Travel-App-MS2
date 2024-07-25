@@ -14,10 +14,11 @@ function App() {
        <Navbar/>
        <Home/>
        <Flights/>
+       <Worldmap/>
        {/* <Hotel/> */}
        <Outlet/>
     </div>
   );
-}
+};
 
 export default App;

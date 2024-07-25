@@ -1,22 +1,42 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-require('dotenv').config();
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CityList from './components/CityList';
+import MapView from './components/MapView';
+import TopNav from './components/TopNav';  
+import './App.css';
 
-const app = express();
-const port = process.env.PORT || 5000;
+const App = () => {
+  const [cities, setCities] = useState([]);
+  const [error, setError] = useState(null);
 
-app.use(cors());
-app.use(express.json());
+  useEffect(() => {
+    fetch('/api/places')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => setCities(data))
+      .catch(error => {
+        console.error('Error fetching cities:', error);
+        setError(error.message);
+      });
+  }, []);
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
-// Routes
-const placesRouter = require('./routes/places');
-app.use('/places', placesRouter);
+  return (
+    <Router>
+      <TopNav />  {/* Use TopNav here */}
+      <Routes>
+        <Route path="/" element={<CityList cities={cities} />} />
+        <Route path="/map/:id" element={<MapView cities={cities} />} />
+      </Routes>
+    </Router>
+  );
+}
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-});
+export default App;

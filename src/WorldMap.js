@@ -7,8 +7,8 @@ const WorldMap = () => {
     const [places, setPlaces] = useState([
         { id: 1, name: "Paris", description: "The city of love", lat: 48.8566, lng: 2.3522 },
         { id: 2, name: "New York", description: "The Big Apple", lat: 40.7128, lng: -74.0060 },
-        { id: 2, name: "Tokyo", description: "Heart of Japan", lat: 35.689487, lng: 139.691711 },
-        { id: 2, name: "Las Vegas", description: "Poker-City", lat: 36.1699, lng: -115.1398 },
+        { id: 3, name: "Tokyo", description: "Heart of Japan", lat: 35.689487, lng: 139.691711 },
+        { id: 4, name: "Las Vegas", description: "Poker-City", lat: 36.1699, lng: -115.1398 },
 
         
         // Add more places as needed

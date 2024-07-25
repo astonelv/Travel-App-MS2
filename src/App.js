@@ -6,6 +6,7 @@ import Flights from './Flights';
 import Navbar from './navbar';
 import Home from './Home';
 import Hotel from './hotel';
+import WorldMap from './WorldMap';
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <Outlet/>
      <Flights/>
      {/* <Hotel/> */}
-    {/* <WorldMap /> */}
+    <WorldMap />
     </div>
   );
 };

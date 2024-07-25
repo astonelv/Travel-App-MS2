@@ -103,12 +103,6 @@ const Flights = () => {
                         <div>
                             <strong>{flight.name}</strong> - {flight.price} USD
                         </div>
-                        <div>
-                            Airline: {flight.airline}
-                        </div>
-                        <div>
-                            Date: {flight.date}
-                        </div>
                         <button onClick={() => handleBookFlight(flight)}>Book</button>
                     </li>
                 ))}

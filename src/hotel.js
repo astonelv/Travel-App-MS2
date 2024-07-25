@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './hotel.css';
-import hotel from './hotel';
 
 
-const hotel = () => {
+const Hotel = () => {
     const [hotel, sethotel] = useState([])
     useEffect(()=>{
     const handleFetch = async () => {
@@ -34,22 +33,29 @@ const hotel = () => {
         handleFetch()
     },[])
 
-    console.log('hotel', 'hotel')
+    // console.log('hotel', hotel)
     return (
         <div>
-            <h1>Hotels</h1>
+        <h1>Hotels</h1>
+        {error && <div>Error: {error}</div>}
+        
+        <ul>
+             {hotel.length > 0 && hotel.map((hotel, index) => (
+                    <li key={`hotel-${index}`}>
+                    <div>
+                    <strong>{hotel.name}</strong>  - {hotel.city} USD {hotel.price} per night       
+                    </div>
+                        <h2>{hotel.name}</h2>
+                        <p>{hotel.city}</p>
+                        <button onClick={() => handleBookHotel(hotel)}>Book</button>
+                    
+                    </li>
+               
+                )) }
             
-            <ul>
-                {
-                    flights.map((hotel, index) => (
-                        <li key={`hotel-${index}`} >
-                            {hotel.name}
-                        </li>
-                    )) 
-                }
-            </ul>
-        </div>
-    )
+        </ul>
+    </div>
+)
 }
 
-export default hotel;
+export default Hotel;

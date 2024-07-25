@@ -1,22 +1,20 @@
 import React from 'react';
 import { Outlet, Route,Routes } from 'react-router-dom';
+import logo from './logo.svg';
 import './App.css';
 import Flights from './Flights';
-import Navbar from './navbar';
-import Home from './Home';
-import Hotel from './hotel';
 
-
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-       <Navbar/>
+    <div>
+      <h1>Travel Guide</h1>
+<TopNav/>
        <Home/>
-       <Flights/>
-       <Worldmap/>
-       {/* <Hotel/> */}
-       <Outlet/>
+   <Outlet/>
+   <Route/>
+   <Routes/>
+     <Flights/>
+     <WorldMap />
     </div>
   );
 };

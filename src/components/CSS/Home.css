@@ -1,0 +1,28 @@
+@import url('./Font.css');
+
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.home-container {
+    color: white;
+    background-color: #414D59;
+    width: 100%;
+    height: 35em;
+    padding: 5em 3em 0;
+}
+
+.home-header {
+    padding-top: 5em;
+}
+
+.home-logo-text {
+    font-size: 3em; 
+}

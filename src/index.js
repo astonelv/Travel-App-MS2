@@ -3,18 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import { RouterProvider,createBrowserRouter } from "react-router-dom";
-
+import ErrorPage from './errorPage';
+import Home from './Root';
+import Flights from "./Flights.js";
+import Hotel from './hotel.js';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <Home/>,
+    errorElement:<ErrorPage/>,
     children:[
       {
-      
+        path: "flights/:bookingid",
+        element: <Flights/>,
+      },
+      {
+        path: "hotels/:hotelid"
       }
     ]
+
   }
 ]);
 

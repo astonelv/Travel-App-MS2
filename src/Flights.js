@@ -66,13 +66,27 @@
 // };
 
 // export default Flights;
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Flights = () => {
     const [flights, setFlights] = useState([]);
+    const [bookings, setBookings] = useState([]);
     const [selectedFlight, setSelectedFlight] = useState(null);
     const [airportCode, setAirportCode] = useState('');
+
+    useEffect(() => {
+        fetchBookings();
+    }, []);
+
+    const fetchBookings = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/bookings');
+            const result = await response.json();
+            setBookings(result);
+        } catch (error) {
+            console.error('Error fetching bookings:', error);
+        }
+    };
 
     const handleInputChange = (e) => {
         setAirportCode(e.target.value);
@@ -113,8 +127,40 @@ const Flights = () => {
 
             const result = await response.json();
             console.log('Booking saved:', result);
+            fetchBookings(); // Refresh bookings list
         } catch (error) {
             console.error('Error saving booking:', error);
+        }
+    };
+
+    const handleUpdateBooking = async (bookingId, flight) => {
+        try {
+            const response = await fetch(`http://localhost:5000/book/${bookingId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ flight })
+            });
+
+            const result = await response.json();
+            console.log('Booking updated:', result);
+            fetchBookings(); // Refresh bookings list
+        } catch (error) {
+            console.error('Error updating booking:', error);
+        }
+    };
+
+    const handleDeleteBooking = async (bookingId) => {
+        try {
+            await fetch(`http://localhost:5000/book/${bookingId}`, {
+                method: 'DELETE'
+            });
+
+            console.log('Booking deleted');
+            fetchBookings(); // Refresh bookings list
+        } catch (error) {
+            console.error('Error deleting booking:', error);
         }
     };
 
@@ -144,9 +190,25 @@ const Flights = () => {
                     <p>Flight booked: {selectedFlight.name}</p>
                 </div>
             )}
+            <h2>Booked Flights</h2>
+            <ul>
+                {bookings.map((booking) => (
+                    <li key={booking.id}>
+                        <div>
+                            <strong>{booking.name}</strong> - {booking.price} USD
+                        </div>
+                        <button onClick={() => handleUpdateBooking(booking.id, booking)}>Update</button>
+                        <button onClick={() => handleDeleteBooking(booking.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };
 
 export default Flights;
+
+
+
+
 
